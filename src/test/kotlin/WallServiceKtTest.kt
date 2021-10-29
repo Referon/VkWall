@@ -22,7 +22,7 @@ class WallServiceKtTest {
         val resultTrue = WallService.update(
             post = post1
         )
-        assertEquals(true,resultTrue)
+        assertEquals(false,resultTrue)
 
         val resultFalse = WallService.update(
             post = Post(7,2,2,2,2,"2",2,2,2,2,2,2,2,2,"2",2,true,true,true,true,true,true,2,2)
