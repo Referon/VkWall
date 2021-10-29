@@ -7,7 +7,7 @@ object WallService {
         posts += post
 
         for ((id, post) in posts.withIndex()) {
-            if (post.id != this.id) {
+            if (post.id != WallService.id) {
                 posts[id] = post.copy(id = post.id + 1)
             }
         }
@@ -19,8 +19,8 @@ object WallService {
     fun update(post: Post): Boolean {
         for ((id, post) in posts.withIndex()) {
 
-            if (post.id == this.id - 1) {
-                posts[id] = post.copy(id = this.id, date = post.date)
+            if (post.id == WallService.id - 1) {
+                posts[id] = post.copy(id = WallService.id, date = post.date)
                 return true
             }
         }
