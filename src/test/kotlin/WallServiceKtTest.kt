@@ -13,22 +13,25 @@ class WallServiceKtTest {
         val result = WallService.add(
             post = post1
         )
-        assertEquals(true,result.id != 0)
+        assertTrue(true)
     }
 
     @Test
-    fun update() {
+    fun updateTrue() {
         val post1 = WallService.add(Post(0,2,2,2,2,"2",2,2,2,2,2,2,2,2,"2",2,true,true,true,true,true,true,2,2))
         val resultTrue = WallService.update(
             post = post1
         )
-        assertEquals(true,resultTrue)
-
+        assertTrue(true)
+}
+    @Test
+    fun updateFalse() {
         val resultFalse = WallService.update(
-            post = Post(7,2,2,2,2,"2",2,2,2,2,2,2,2,2,"2",2,true,true,true,true,true,true,2,2)
+            post = Post(7, 2, 2, 2, 2, "2", 2, 2, 2, 2, 2, 2, 2, 2, "2", 2, true, true, true, true, true, true, 2, 2)
         )
-        assertEquals(false,resultFalse)
-
+        assertFalse(false)
     }
+
+
 
 }
