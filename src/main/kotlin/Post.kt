@@ -22,5 +22,10 @@ data class Post(
     val markedAsAds: Boolean,
     val isFavorite: Boolean,
     val donut: Any,
-    val postponedId: Int
+    val postponedId: Int,
+    val post_source: Any,
+    val geo: Any,
+    val copy_history: Any?
 )
+
+
