@@ -4,14 +4,13 @@ object WallService {
     private var nextId = 0
 
     fun add(post: Post): Post {
-        posts += post
 
         if (posts.isEmpty()) {
-            posts = arrayOf(post.copy(id = 0))
+            posts += post.copy(id = 0)
         } else {
-            posts = arrayOf(post.copy(id = nextId))
-            nextId++
+            posts += post.copy(id = nextId)
         }
+        nextId++
         return posts.last()
     }
 
