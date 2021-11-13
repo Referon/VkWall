@@ -2,6 +2,7 @@ object WallService {
 
     private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
+    private var reports = emptyArray<ReportComment>()
     private var nextId = 0
 
     fun add(post: Post): Post {
@@ -40,6 +41,22 @@ object WallService {
             throw PostNotFoundException("Пост не найден")
         }
 
+    }
+
+    fun reportComment(report: ReportComment) {
+        var reportAdd = false
+        for ((id, itemComment) in comments.withIndex()) {
+
+            if (report.commentId == itemComment.id && (report.reason in 0..8)) {
+                reports += report
+                reportAdd = true
+            } else if (report.reason < 0 || report.reason > 8) {
+                throw ReasonNotFoundException("Причина указана не верно")
+            }
+        }
+        if (reportAdd == false) {
+            throw CommentIdNotFoundException("Комментарий не найден")
+        }
     }
 }
 

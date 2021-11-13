@@ -49,6 +49,36 @@ class WallServiceKtTest {
         )
     }
 
+    @Test(expected = ReasonNotFoundException::class)
+    fun reportCommentIsReasonNotFound() {
+        val post1 = WallService.add(Post(0,2,2,2,2,"2",2,2,2,2,2,2,2,2,"2",2,true,true,true,true,true,true,2,2,2,2,2))
+        val coment1 = WallService.createComment(Comment(1, 0, 2, 2, "2", 2, 2, 2, 2, 2))
+        val report1 = ReportComment(1,1,9)
+        val result = WallService.reportComment(
+            report = report1
+        )
+    }
+
+    @Test(expected = CommentIdNotFoundException::class)
+    fun reportCommentIsIdNotFound() {
+        val post1 = WallService.add(Post(0,2,2,2,2,"2",2,2,2,2,2,2,2,2,"2",2,true,true,true,true,true,true,2,2,2,2,2))
+        val coment1 = WallService.createComment(Comment(1, 0, 2, 2, "2", 2, 2, 2, 2, 2))
+        val report1 = ReportComment(1,5,5)
+        val result = WallService.reportComment(
+            report = report1
+        )
+    }
+
+    @Test
+    fun reportCommentIsTrue() {
+        val post1 = WallService.add(Post(0,2,2,2,2,"2",2,2,2,2,2,2,2,2,"2",2,true,true,true,true,true,true,2,2,2,2,2))
+        val coment1 = WallService.createComment(Comment(1, 0, 2, 2, "2", 2, 2, 2, 2, 2))
+        val report1 = ReportComment(1,1,5)
+        val result = WallService.reportComment(
+            report = report1
+        )
+    }
+
 
 
 
