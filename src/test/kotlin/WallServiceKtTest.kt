@@ -32,6 +32,24 @@ class WallServiceKtTest {
         assertFalse(resultFalse)
     }
 
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        val result = WallService.createComment(
+            comment = Comment(1, 6, 2, 2, "2", 2, 2, 2, 2, 2)
+        )
+    }
+
+    @Test
+    fun createCommentIsTrue() {
+        val post1 = WallService.add(Post(0,2,2,2,2,"2",2,2,2,2,2,2,2,2,"2",2,true,true,true,true,true,true,2,2,2,2,2))
+        val coment1 = Comment(1, 0, 2, 2, "2", 2, 2, 2, 2, 2)
+
+        val result = WallService.createComment(
+            comment = coment1
+        )
+    }
+
+
 
 
 }
