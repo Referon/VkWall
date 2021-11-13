@@ -25,5 +25,5 @@ data class Post(
     val postponedId: Int,
     val postSource: Any,
     val geo: Any,
-    val copyHistory: Any
+    val copyHistory: Any?
 )
